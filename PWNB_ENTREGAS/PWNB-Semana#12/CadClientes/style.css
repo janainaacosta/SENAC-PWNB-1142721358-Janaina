@@ -1,0 +1,106 @@
+body{
+    /* background-color: #f9eefd; */
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f6f4f486;
+
+}
+h1, h2{
+    text-align: center;
+    color: #626262;
+    font-weight: 300;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    background-color:#fff;
+    /* border: solid 1px #9a969c; */
+    box-shadow: rgba(34, 34, 34, 0.16) 0px 3px 6px,
+     rgba(34, 34, 34, 0.168) 0px 3px 6px;
+    width: 60%;
+    margin: auto;
+    padding: 20px;
+}
+
+label{
+    color: #757575;
+}
+
+#img-logo{
+    width: 150px;
+}
+
+#customer-form{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#teste{
+    width: 400px;
+}
+
+.div-input{
+    padding: 10px;
+}
+
+.div-input input{
+    float: right;
+    border: solid 1px #75757590;
+}
+
+#div-input-numero{
+    bottom: 0px;
+    position: absolute;
+}
+
+#div-input-numero input{
+    width: 40px;
+}
+
+#div-buttons-form{
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+    align-items: center;
+    margin: auto;
+}
+
+#div-buttons-form button,
+.edit-button{
+    border: none;
+    color: #fff;
+    padding: 5px;
+    box-shadow: rgba(73, 73, 73, 0.16) 0px 3px 6px,
+    rgba(34, 34, 34, 0.168) 0px 3px 6px;
+    cursor: pointer;
+    
+}
+
+#btn-cadastrar,
+#btn-editar{
+    background-color: #93C572	;
+}
+
+#btn-limpar, 
+#btn-excluir{
+    background-color: #d6734c;
+}
+
+#div-select{
+    position: relative;
+    justify-content: space-between;
+}
+
+#lista-cli{
+    display: flex;
+    flex-direction: column;
+    background-color:#fff;
+    /* border: solid 1px #9a969c; */
+    box-shadow: rgba(34, 34, 34, 0.16) 0px 3px 6px,
+     rgba(34, 34, 34, 0.168) 0px 3px 6px;
+    width: 60%;
+    margin: 30px auto;
+    padding: 20px;
+}
+

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Clientes</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+    <section id="section-form">
+        <img src="./1200px-Senac_logo.svg.png" alt="logo-senac" id="img-logo">
+        <h1>Cadastro de Clientes</h1>
+        <form id="formulario">
+            <div>
+                <div id="customer-form">
+                    <div id="teste">
+                        <div class="div-input">
+                            <label for="nome">Nome:</label>
+                            <input type="text" id="nome" required>
+                            <br>
+                        </div>
+                        
+                        <div class="div-input">
+                            <label for="sobrenome">Sobrenome:</label>
+                            <input type="text" id="sobrenome" required>
+                            <br>
+                        </div>
+                        
+                        <div class="div-input">
+                            <label for="dataNasc">Data de Nascimento:</label>
+                            <input type="text" id="dataNasc" required>
+                            <br>
+                        </div>
+                        
+                        <div class="div-input">
+                            <label for="cidade">Cidade:</label>
+                            <input type="text" id="cidade" required>
+                            <br>
+                        </div>
+                       
+                        <div class="div-input">
+                            <label for="cep">CEP:</label>
+                            <input type="text" id="cep" required>
+                            <br>
+                        </div>
+
+                            <div class="div-input">
+                                <label for="endereco">Endereço:</label>
+                                <input type="text" id="endereco" required>
+                                <br>
+                            </div>
+                    </div>
+
+                    <div id="div-select">
+                        <label for="select_tipo_cliente">Tipo de Cliente:</label>
+                        <select id="select_tipo_cliente" name="tipoCliente">
+                            <option value="Selecione">Selecione</option>
+                            <option value="Bronze">Bronze</option>
+                            <option value="Prata">Prata</option>
+                            <option value="Ouro">Ouro</option>
+                            <option value="Platina">Platina</option>
+                            <option value="Diamante">Diamante</option>
+                        </select>
+
+                        <div class="div-input" id="div-input-numero">
+                            <label for="numero">N°:</label>
+                            <input type="text" id="numero" required>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="div-buttons-form">
+                <button id="btn-cadastrar" type="submit" onclick="validar()">Cadastrar</button>
+                <button id="btn-limpar" type="button"  onclick="excluirTodosClientes()">Limpar</button>
+                <a href="lista.html">Lista</a>
+            </div>
+        </form>
+    </section>
+  
+    
+    <section >
+        <h2>Clientes Cadastrados</h2>
+        <div id="lista-cli">
+            <ul id="customer-list">
+            </ul>
+        </div>
+    </section>
+   
+
+    <script>
+        var regNome = new RegExp("[A-Za-z ]{2,50}$");
+        var regSobrenome = new RegExp("[A-Za-z ]{2,50}$");
+        var regDataNasc = new RegExp("(\\d{2})/(\\d{2})/(\\d{4})$");
+        var regCidade = new RegExp("[A-Za-z ]{6,50}$");
+        var regCEP = new RegExp("\\d{5}-\\d{3}$");
+        var regEndereco = new RegExp("[A-Za-z ]{5,50}$");
+        var regNumero = new RegExp("^\\d+$");
+        var regTipoCliente = new RegExp("^(Bronze|Prata|Ouro|Platina|Diamante)$");
+
+
+        function validar() {
+            if (!regNome.test(nome.value)) {
+                alert("Informe um nome válido!");
+                return false;
+            }
+
+            if (!regSobrenome.test(sobrenome.value)) {
+                alert("Informe um sobrenome válido!");
+                return false;
+            }
+
+            if (!regDataNasc.test(dataNasc.value)) {
+                alert("Informe uma data válida (dd/mm/aaaa)");
+                return false;
+            }
+
+            if (!regCidade.test(cidade.value)) {
+                alert("Informe uma cidade válida!");
+                return false;
+            }
+
+            if (!regCEP.test(cep.value)) {
+                alert("Informe um CEP válido! (nnnnn-ccc)");
+                return false;
+            }
+
+            if (!regEndereco.test(endereco.value)) {
+                alert("Informe um endereço válido!");
+                return false;
+            }
+
+            if (!regNumero.test(numero.value)) {
+                alert("Informe um número válido!");
+                return false;
+            }
+
+            
+        }
+
+        const customers = [];
+
+        function addCliente(nome, sobrenome, dataNasc, cidade, cep, endereco, numero,tipoCliente) {
+            const customer = { nome, sobrenome, dataNasc, cidade, cep, endereco, numero, tipoCliente  };
+            customers.push(customer);
+            atualizaListaClientes();
+        }
+
+        function atualizaListaClientes() {
+            alert("local")
+            clientes=
+                [{nome:"clientex",sobrenome:"da silva"},
+                {nome:"clientey",sobrenome:"da silva"}]
+            
+                localStorage.setItem("clientes",JSON.stringify(clientes))
+            const customerList = document.getElementById('customer-list');
+            customerList.innerHTML = '';
+            customers.forEach((customer, index) => {
+                const li = document.createElement('li');
+                li.innerHTML = `${customer.nome} 
+                                ${customer.sobrenome} - 
+                                ${customer.dataNasc} - 
+                                ${customer.cidade} - 
+                                ${customer.cep} - 
+                                ${customer.endereco} - 
+                                ${customer.numero} -
+                                ${customer.tipoCliente}
+                    <button id="btn-excluir" class="edit-button" onclick="deleteCustomer(${index})">Excluir</button>
+                    <button id="btn-editar" class="edit-button" onclick="editCustomer(${index})">Editar</button>`;
+
+                customerList.appendChild(li);
+            });
+        }
+
+        function deleteCustomer(index) {
+            customers.splice(index, 1);
+            atualizaListaClientes();
+        }
+
+        function editCustomer(index) {
+            const customer = customers[index];
+            nome.value = customer.nome;
+            sobrenome.value = customer.sobrenome;
+            dataNasc.value = customer.dataNasc;
+            cidade.value = customer.cidade;
+            cep.value = customer.cep;
+            endereco.value = customer.endereco;
+            numero.value = customer.numero;
+            deleteCustomer(index);
+        }
+
+        const customerForm = document.getElementById('formulario');
+        customerForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const nome = document.getElementById('nome').value;
+            const sobrenome = document.getElementById('sobrenome').value;
+            const dataNasc = document.getElementById('dataNasc').value;
+            const cidade = document.getElementById('cidade').value;
+            const cep = document.getElementById('cep').value;
+            const endereco = document.getElementById('endereco').value;
+            const numero = document.getElementById('numero').value;
+            const tipoCliente = document.getElementById('select_tipo_cliente').value;
+
+
+            if (regNome.test(nome) &&
+                regSobrenome.test(sobrenome) &&
+                regDataNasc.test(dataNasc) &&
+                regCidade.test(cidade) &&
+                regCEP.test(cep) &&
+                regEndereco.test(endereco) &&
+                regNumero.test(numero) &&
+                regTipoCliente.test(tipoCliente)) {
+                addCliente(nome, sobrenome, dataNasc, cidade, cep, endereco, numero, tipoCliente);
+                customerForm.reset();
+            } else {
+                alert('Preencha todos os campos corretamente');
+            }
+        });
+
+        function excluirTodosClientes() {
+            customers.length = 0; 
+            atualizaListaClientes(); 
+        }   
+
+        const clearButton = document.getElementById('btn-limpar');
+        clearButton.addEventListener('click', () => {
+            customerForm.reset();
+        });
+    </script>
+</body>
+</html>

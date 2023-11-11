@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link type="text/javascript" src="script.js" />    
+    <!-- <link type="text/javascript" src="script.js" />     -->
+
+    <title>Lista de Clientes</title>
+</head>
+<body>
+    <section >
+        <h2>Clientes Cadastrados</h2>
+        <div id="lista-cli">
+            <ul id="customer-list">
+            </ul>
+        </div>
+    </section>
+    <script>
+        var clientes=[]
+clientes = JSON.parse( localStorage.getItem("clientes"))
+customerList.innerHTML = '';
+            clientes.forEach((clientes, index) => {
+                const li = document.createElement('li');
+                li.innerHTML = `${customer.nome} 
+                                ${customer.sobrenome} 
+                               }
+                    <button id="btn-excluir" class="edit-button" onclick="deleteCustomer(${index})">Excluir</button>
+                    <button id="btn-editar" class="edit-button" onclick="editCustomer(${index})">Editar</button>`;
+
+                customerList.appendChild(li);
+            });
+    </script>
+</body>
+</html>

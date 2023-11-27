@@ -1,86 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cadastro de Clientes</title>
     <link rel="stylesheet" type="text/css" href="style.css" />
-    <link type="text/javascript" src="index.js" />    
-
-
-</head>
-<body>
+    <link type="text/javascript" src="index.js" />
+  </head>
+  <body>
     <section id="section-form">
-        <img src="./1200px-Senac_logo.svg.png" alt="logo-senac" id="img-logo">
-        <h1>Cadastro de Clientes</h1>
-        <form id="formulario">
-            <div>
-                <div id="customer-form">
-                    <div id="teste">
-                        <div class="div-input">
-                            <label for="nome">Nome:</label>
-                            <input type="text" id="nome" required>
-                            <br>
-                        </div>
-                        
-                        <div class="div-input">
-                            <label for="sobrenome">Sobrenome:</label>
-                            <input type="text" id="sobrenome" required>
-                            <br>
-                        </div>
-                        
-                        <div class="div-input">
-                            <label for="dataNasc">Data de Nascimento:</label>
-                            <input type="text" id="dataNasc" required>
-                            <br>
-                        </div>
-                        
-                        <div class="div-input">
-                            <label for="cidade">Cidade:</label>
-                            <input type="text" id="cidade" required>
-                            <br>
-                        </div>
-                       
-                        <div class="div-input">
-                            <label for="cep">CEP:</label>
-                            <input type="text" id="cep" required>
-                            <br>
-                        </div>
+      <img src="./1200px-Senac_logo.svg.png" alt="logo-senac" id="img-logo" />
+      <h1>Cadastro de Clientes</h1>
+      <form id="formulario">
+        <div>
+          <div id="customer-form">
+            <div id="teste">
+              <div class="div-input">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" required />
+                <br />
+              </div>
 
-                            <div class="div-input">
-                                <label for="endereco">Endereço:</label>
-                                <input type="text" id="endereco" required>
-                                <br>
-                            </div>
-                    </div>
+              <div class="div-input">
+                <label for="sobrenome">Sobrenome:</label>
+                <input type="text" id="sobrenome" required />
+                <br />
+              </div>
 
-                    <div id="div-select">
-                        <label for="select_tipo_cliente">Tipo de Cliente:</label>
-                        <select id="select_tipo_cliente" name="tipoCliente">
-                            <option value="Selecione">Selecione</option>
-                            <option value="Bronze">Bronze</option>
-                            <option value="Prata">Prata</option>
-                            <option value="Ouro">Ouro</option>
-                            <option value="Platina">Platina</option>
-                            <option value="Diamante">Diamante</option>
-                        </select>
+              <div class="div-input">
+                <label for="dataNasc">Data de Nascimento:</label>
+                <input type="text" id="dataNasc" required />
+                <br />
+              </div>
 
-                        <div class="div-input" id="div-input-numero">
-                            <label for="numero">N°:</label>
-                            <input type="text" id="numero" required>
-                            <br>
-                        </div>
-                    </div>
-                </div>
+              <div class="div-input">
+                <label for="cidade">Cidade:</label>
+                <input type="text" id="cidade" required />
+                <br />
+              </div>
+
+              <div class="div-input">
+                <label for="cep">CEP:</label>
+                <input type="text" id="cep" required />
+                <br />
+              </div>
+
+              <div class="div-input">
+                <label for="endereco">Endereço:</label>
+                <input type="text" id="endereco" required />
+                <br />
+              </div>
             </div>
 
-            <div id="div-buttons-form">
-                <button id="btn-cadastrar" type="submit" onclick="validar()">Cadastrar</button>
-                <button id="btn-limpar" type="button"  onclick="excluirTodosClientes()">Limpar</button>
-                <a href="lista.html">Lista</a>
+            <div id="div-select">
+              <label for="select_tipo_cliente">Tipo de Cliente:</label>
+              <select id="select_tipo_cliente" name="tipoCliente">
+                <option value="Selecione">Selecione</option>
+                <option value="Bronze">Bronze</option>
+                <option value="Prata">Prata</option>
+                <option value="Ouro">Ouro</option>
+                <option value="Platina">Platina</option>
+                <option value="Diamante">Diamante</option>
+              </select>
+
+              <div class="div-input" id="div-input-numero">
+                <label for="numero">N°:</label>
+                <input type="text" id="numero" required />
+                <br />
+              </div>
             </div>
-        </form>
+          </div>
+        </div>
+
+        <div id="div-buttons-form">
+          <button id="btn-cadastrar" type="submit" onclick="validar()">
+            Cadastrar
+          </button>
+          <button
+            id="btn-limpar"
+            type="button"
+            onclick="excluirTodosClientes()"
+          >
+            Limpar
+          </button>
+          <a href="lista.html">Lista</a>
+        </div>
+      </form>
     </section>
-   
-</body>
+    <script src="index.js"></script>
+  </body>
 </html>

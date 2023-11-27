@@ -17,24 +17,7 @@
             <ul id="customer-list"></ul>
         </div>
     </section>
-    <script>
-        var clientes = JSON.parse(localStorage.getItem("clientes"));
-        var customerList = document.getElementById("customer-list");
-        
-        if (clientes) {
-            clientes.forEach((cliente, index) => {
-                const li = document.createElement('li');
-                li.innerHTML = `${cliente.nome} -
-                                ${cliente.dataNasc} -
-                                ${cliente.cep} -
-                                ${cliente.endereco} 
-
-                    <button id="btn-excluir" class="edit-button" onclick="deleteCustomer(${index})">Excluir</button>
-                    <button id="btn-editar" class="edit-button" onclick="editCustomer(${index})">Editar</button>`;
-
-                customerList.appendChild(li);
-            });
-        }
+    <script src="lista.js">
     </script>
 </body>
 </html>
